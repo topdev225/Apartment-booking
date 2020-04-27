@@ -1,0 +1,973 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,500,700,900&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border-radius: 3px;
+}
+
+:root {
+  --primaryColor: #af9a7d;
+  --mainWhite: #fff;
+  --offWhite: #f7f7f7;
+  --mainBlack: #222;
+  --mainGrey: #ececec;
+  --darkGrey: #424242;
+  --mainTransition: all 0.15s linear;
+  --mainSpacing: 1.5px;
+  --lightShadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.5);
+  --darkShadow: 4px 10px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+/* globals */
+body {
+  padding-top: 66px;
+  color: var(--offWhite);
+  background: var(--darkGrey);
+  font-family: 'open sans';
+  line-height: 1.4;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 3em;
+  line-height: 1;
+  margin-bottom: 0.5em;
+}
+
+h2 {
+  font-size: 2em;
+  margin-bottom: 0.75em;
+}
+
+h3 {
+  font-size: 1.5em;
+  line-height: 1;
+  margin-bottom: 1em;
+}
+
+h4 {
+  font-size: 1.2em;
+  line-height: 1.25;
+  margin-bottom: 1.25em;
+}
+
+h5 {
+  font-size: 1em;
+  font-weight: bold;
+  margin-bottom: 1.5em;
+}
+
+h6 {
+  font-size: 1em;
+  font-weight: bold;
+  margin-bottom: 1.5em;
+}
+
+.btn-primary {
+  display: inline-block;
+  text-decoration: none;
+  letter-spacing: var(--mainSpacing);
+  color: var(--mainWhite);
+  background: var(--primaryColor);
+  padding: 0.4rem 0.9rem;
+  border: 3px solid var(--primaryColor);
+  transition: var(--mainTransition);
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn-primary:hover {
+  background: transparent;
+  color: var(--primaryColor);
+}
+
+.loading {
+  text-transform: capitalize;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.error {
+  text-align: center;
+  text-transform: uppercase;
+  margin: 2rem 0;
+}
+
+.empty-search {
+  text-align: center;
+  text-transform: capitalize;
+  margin: 2rem 0;
+  padding: 1rem;
+  letter-spacing: var(--mainSpacing);
+}
+
+/* end of globals */
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.75rem 2rem;
+  background: var(--mainWhite);
+  z-index: 1;
+}
+
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.nav-icon {
+  font-size: 1.5rem;
+  color: var(--primaryColor);
+}
+
+.nav-links {
+  height: 0;
+  transition: var(--mainTransition);
+  list-style-type: none;
+}
+
+.nav-links a {
+  display: block;
+  text-decoration: none;
+  padding: 1rem 0;
+  color: var(--mainBlack);
+  transition: var(--mainTransition);
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: var(--mainSpacing);
+}
+
+.nav-links a:hover {
+  color: var(--primaryColor);
+}
+
+.show-nav {
+  height: 100px;
+}
+
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+.navbar li {
+  display: block;
+  float: left;
+  position: relative;
+  text-decoration: none;
+  transition-duration: 0.5s;
+}
+
+.navbar ul li ul {
+  visibility: hidden;
+  opacity: 0;
+  min-width: 5rem;
+  position: absolute;
+  transition: all 0.5s ease;
+  left: 0;
+  display: none;
+}
+
+.navbar .navbar-dropdown li:hover {
+  background: var(--offWhite);
+}
+
+.navbar ul li:hover>ul,
+.navbar ul li ul:hover {
+  background: var(--mainGrey);
+  visibility: visible;
+  opacity: 1;
+  display: block;
+}
+
+.navbar ul li ul li {
+  clear: both;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .nav-btn {
+    display: none;
+  }
+
+  .nav-center {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .nav-links {
+    height: auto;
+    display: flex;
+    margin-left: 4rem;
+  }
+
+  .nav-links a {
+    display: inline-block;
+    margin: 0 1rem;
+    padding: 0.5rem 0;
+  }
+}
+
+/* end of navbar */
+
+/* Title */
+.section-title {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title h4 {
+  font-size: 2rem;
+  letter-spacing: var(--mainSpacing);
+  text-transform: capitalize;
+  margin-bottom: 1rem;
+}
+
+.section-title div {
+  width: 5rem;
+  height: 5px;
+  margin: 0 auto;
+  background: var(--primaryColor);
+}
+
+/* end of Title */
+
+/* Login */
+.login-page {
+  width: 400px;
+  padding: 8% 0 0;
+  margin: auto;
+  color: var(--mainBlack);
+}
+
+.login-page .form {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 400px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.login-page .form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.login-page .form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4CAF50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+.login-page .form button:hover,
+.login-page .form button:active,
+.login-page .form button:focus {
+  background: #43A047;
+}
+
+.error-message {
+  color: red;
+}
+
+/* end of Login  */
+
+/* Signup */
+.signup-page {
+  width: 400px;
+  padding: 8% 0 0;
+  margin: auto;
+  color: var(--mainBlack);
+}
+
+.signup-page .form {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 400px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.signup-page .form input,
+select {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.signup-page .form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4CAF50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+.signup-page .form button:hover,
+.signup-page .form button:active,
+.signup-page .form button:focus {
+  background: #43A047;
+}
+
+/* end of Signup  */
+
+/* apartment */
+.apartment {
+  box-shadow: 0 .1875rem .1875rem 0 rgba(0, 0, 0, .25);
+  -webkit-box-shadow: 0 .1875rem .1875rem 0 rgba(0, 0, 0, .25);
+  transition: var(--mainTransition);
+  background-color: var(--mainWhite);
+}
+
+.apartment:hover {
+  box-shadow: 0 .2.2rem .2.2rem 0 rgba(0, 0, 0, .25);
+  -webkit-box-shadow: 0 .2.2rem .2.2rem 0 rgba(0, 0, 0, .25);
+}
+
+.img-container {
+  position: relative;
+}
+
+.img-container img {
+  width: 100%;
+  height: 150px;
+  display: block;
+  transition: var(--mainTransition);
+}
+
+.price-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+  color: var(--mainWhite);
+  padding: 0.3rem 0.6rem 0.5rem;
+  border-bottom-right-radius: 1rem;
+  font-size: 0.5rem;
+  text-align: center;
+  transition: var(--mainTransition);
+}
+
+.price-top h6 {
+  margin-bottom: 0;
+  font-size: 0.9rem;
+  font-weight: 300;
+  letter-spacing: var(--mainSpacing);
+}
+
+.apartment-link {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: scale(0);
+  transition: all 0.13s linear;
+}
+
+.img-container:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.img-container:hover img {
+  opacity: 0.3;
+}
+
+.img-container:hover .price-top {
+  opacity: 0;
+}
+
+.img-container:hover .apartment-link {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.apartment-info {
+  background: var(--mainWhite);
+  color: var(--darkGrey);
+  text-transform: capitalize;
+  padding: 0.55rem 0;
+  text-align: center;
+  font-weight: 700;
+  font-size: large;
+  letter-spacing: var(--mainSpacing);
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  position: relative;
+  bottom: 10px;
+  height: 34px;
+}
+
+/* end of apartment  */
+/* single apartment*/
+
+.edit-apartment-header .btn-primary {
+  margin: 10px;
+}
+
+.single-apartment-images {
+  width: 80vw;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-row-gap: 2rem;
+  grid-column-gap: 50px;
+}
+
+.single-apartment-images .single-apartment-upload-image {
+  width: 100px;
+  cursor: pointer;
+}
+
+.single-apartment-images img {
+  width: 50%;
+  display: block;
+}
+
+.single-apartment-info {
+  width: 80vw;
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 2rem auto;
+}
+
+.desc,
+.info {
+  margin: 1rem 0;
+}
+
+.desc h3 {
+  text-transform: capitalize;
+  letter-spacing: var(--mainSpacing);
+}
+
+.desc p {
+  line-height: 1.5;
+}
+
+.info h3,
+.info h6 {
+  text-transform: capitalize;
+  letter-spacing: var(--mainSpacing);
+}
+
+.info h6 {
+  font-weight: 300;
+}
+
+.edit-apartment-header button {
+  float: right;
+}
+
+.apartment-editable-name {
+  width: 95vw;
+  margin: 0 auto;
+  max-width: 1170px;
+}
+
+.apartment-editable-name input,
+h2 {
+  font-size: 2rem;
+  letter-spacing: var(--mainSpacing);
+  margin: 2rem 0;
+}
+
+.apartment-editable-description {
+  min-width: 540px;
+  min-height: 120px;
+  letter-spacing: var(--mainSpacing);
+}
+
+@media screen and (min-width: 992px) {
+
+  .single-apartment-images,
+  .single-apartment-info {
+    width: 95vw;
+    max-width: 1170px;
+  }
+
+  .single-apartment-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 2rem;
+  }
+
+  .info {
+    padding-left: 3rem;
+  }
+}
+
+/* end of single apartment*/
+/* apartmentlist */
+.apartmentslist {
+  /* border: 2px solid green; */
+  padding: 20px 0;
+}
+
+.apartmentslist-center {
+  margin: 0 2vw;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(270px, 1fr));
+  grid-row-gap: 2rem;
+  grid-column-gap: 30px;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+@media screen and (min-width: 776px) {
+  .apartmentslist-center {
+    /* width: 90vw; */
+    /* grid-template-columns: repeat(1, minmax(270px, 1fr)); */
+    margin: 0 2vw;
+    max-height: 100vh;
+    overflow-y: auto;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .apartmentslist-center {
+    /* width: 95vw; */
+    max-width: 1170px;
+    margin: 0 2vw;
+    max-height: 100vh;
+    overflow-y: auto;
+  }
+}
+
+/* end of apartmentlist */
+/*  apartments fitler*/
+.filter-container {
+  border: 1px solid black;
+  background-color: var(--offWhite);
+  padding: 20px 0;
+  max-height: 600px;
+  margin-top: 20px;
+  color: var(--mainBlack);
+}
+
+.filter-form {
+  /* border: 2px solid purple; */
+  width: 80%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(1, minmax(80%, 1fr));
+  grid-row-gap: 2rem;
+  grid-column-gap: 40px;
+}
+
+.form-group {
+  text-transform: capitalize;
+}
+
+.form-group label {
+  display: block;
+  letter-spacing: var(--mainSpacing);
+  margin-bottom: 0.5rem;
+}
+
+.form-control {
+  width: 100%;
+  background: white;
+  font-size: 1rem;
+}
+
+.size-inputs {
+  display: flex;
+}
+
+.size-input {
+  width: 40%;
+  padding: 0.2rem;
+  border: 1px solid var(--mainBlack);
+  border-radius: 0.3rem;
+  margin-right: 0.3rem;
+}
+
+.single-extra label {
+  display: inline-block;
+  font-size: 0.8rem;
+  margin-left: 0.5rem;
+}
+
+@media screen and (min-width: 776px) {
+  .filter-form {
+    /* width: 70vw; */
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .filter-form {
+    /* width: 95vw; */
+    max-width: 1170px;
+  }
+}
+
+/* end of apartments fitler*/
+/* info window */
+.info-room {
+  box-shadow: var(--lightShadow);
+  transition: var(--mainTransition);
+  background-color: var(--mainWhite);
+}
+
+.info-room:hover {
+  box-shadow: var(--darkShadow);
+}
+
+.info-image {
+  width: 202.5px;
+  height: 113.9px;
+}
+
+.info-img-container {
+  position: relative;
+}
+
+.info-img-container img {
+  width: auto;
+  display: block;
+  transition: var(--mainTransition);
+}
+
+.info-price-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+  color: var(--mainWhite);
+  padding: 0.3rem 0.6rem 0.5rem;
+  border-bottom-right-radius: 1rem;
+  font-size: 0.5rem;
+  text-align: center;
+  transition: var(--mainTransition);
+}
+
+.info-price-top h6 {
+  margin-bottom: 0;
+  font-size: 0.9rem;
+  font-weight: 300;
+  letter-spacing: var(--mainSpacing);
+}
+
+.info-apartment-link {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: scale(0);
+  transition: all 0.13s linear;
+}
+
+.info-apartment-info {
+  margin-top: .25rem;
+  margin-bottom: 0px;
+  color: var(--darkGrey)
+}
+
+.info-img-container:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.info-img-container:hover img {
+  opacity: 0.3;
+}
+
+.info-img-container:hover .info-price-top {
+  opacity: 0;
+}
+
+.info-img-container:hover .info-apartment-link {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.info-apartment-info {
+  background: var(--mainWhite);
+  text-transform: capitalize;
+  padding: 0.5rem 0;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: var(--mainSpacing);
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+  position: relative;
+  bottom: 10px;
+  height: 24px;
+}
+
+/* end of info window */
+
+/* map */
+.mapContainer {
+  height: 100vh;
+}
+
+/* end map */
+
+/* grid fix code  */
+#apartmentsWrapper {
+  display: grid;
+  grid-template-columns: 20% 40% 40%;
+  padding: 0px 10px;
+}
+
+@media only screen and (max-width: 735px) {
+  #apartmentsWrapper {
+    display: grid;
+    grid-template-columns: 100%;
+  }
+
+  .apartmentslist-center {
+    margin: 0 2vw;
+    display: grid;
+    grid-template-columns: repeat(1, minmax(270px, 1fr));
+    grid-row-gap: 2rem;
+    grid-column-gap: 30px;
+    max-height: 100vh;
+    overflow-y: auto;
+  }
+
+  .mapContainer {
+    height: 400px;
+  }
+
+  .single-apartment-images {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+@media only screen and (min-width: 735px) and (max-width: 1175px) {
+
+  .filter-form {
+    width: 100%;
+  }
+
+  .apartmentslist-center {
+    margin: 0 2vw;
+    display: grid;
+    grid-template-columns: repeat(1, minmax(270px, 1fr));
+    grid-row-gap: 2rem;
+    grid-column-gap: 30px;
+    max-height: 100vh;
+    overflow-y: auto;
+  }
+
+  #apartmentsWrapper {
+    display: grid;
+    grid-template-columns: 20% 40% 40%;
+  }
+}
+
+@media only screen and (min-width: 1175px) and (max-width: 1300px) {
+
+  .apartmentslist-center {
+    margin: 0 2vw;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(270px, 1fr));
+    grid-row-gap: 2rem;
+    grid-column-gap: 30px;
+    max-height: 100vh;
+    overflow-y: auto;
+  }
+
+  #apartmentsWrapper {
+    display: grid;
+    grid-template-columns: 15% 50% 35%;
+  }
+}
+
+@media only screen and (min-width: 1300px) and (max-width: 1450px) {
+
+  .apartmentslist-center {
+    margin: 0 2vw;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(270px, 1fr));
+    grid-row-gap: 2rem;
+    grid-column-gap: 30px;
+    max-height: 100vh;
+    overflow-y: auto;
+  }
+
+  #apartmentsWrapper {
+    display: grid;
+    grid-template-columns: 15% 45% 40%;
+  }
+}
+
+/* end grid fix code  */
+
+
+/* table  */
+
+.table-component table {
+  width: 95vw;
+  border-collapse: collapse;
+  margin: 50px auto;
+}
+
+/* Zebra striping */
+.table-component tr:nth-of-type(odd) {
+  background: var(--darkGrey);
+}
+
+.table-component th {
+  background: #3498db;
+  color: white;
+  font-weight: bold;
+}
+
+.table-component td,
+.table-component th {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+  font-size: 18px;
+}
+
+.table-component .table-action-btn {
+  margin: 5px;
+}
+
+.table-component .add-btn-container {
+  width: 95vw;
+  margin: 50px auto;
+}
+
+.table-component .add-btn {
+  margin-bottom: 10px;
+  float: right;
+}
+
+/* 
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px) {
+
+  .table-component table {
+    width: 100%;
+  }
+
+  /* Force table to not be like tables anymore */
+  .table-component table,
+  .table-component thead,
+  .table-component tbody,
+  .table-component th,
+  .table-component td,
+  .table-component tr {
+    display: block;
+  }
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  .table-component thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  .table-component tr {
+    border: 1px solid #ccc;
+  }
+
+  .table-component td {
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid var(--darkGrey);
+    position: relative;
+    padding-left: 50%;
+  }
+
+  .table-component td:before {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    /* Label the data */
+    content: attr(data-column);
+
+    color: #000;
+    font-weight: bold;
+  }
+
+}
+
+/* end table  */
+
+/* user */
+.edit-user-header .btn-primary {
+  margin: 10px;
+}
+
+.edit-user-header button {
+  float: right;
+}
+
+.edit-user-form {
+  width: 95vw;
+  margin: 0px auto;
+}
+
+.edit-user-form input {
+  width: 100%;
+  min-height: 40px;
+  font-size: 1rem;
+}
+
+.edit-user-form h3 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* end user */

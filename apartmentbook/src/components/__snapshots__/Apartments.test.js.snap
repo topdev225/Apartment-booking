@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Apartments renders correctly 1`] = `
+<div
+  className="apartment"
+>
+  <div
+    className="img-container"
+  >
+    <img
+      alt="apartment option"
+      src="https://firebasestorage.googleapis.com/v0/b/apartmentbook-6fc13.appspot.com/o/images%2F1585157227557room-12.jpeg?alt=media&token=fa90e908-510c-46de-8cd8-c66b26b54880"
+    />
+    <div
+      className="price-top"
+    >
+      <h6>
+        $
+        33
+      </h6>
+      <p>
+        per month
+      </p>
+    </div>
+    <Link
+      className="btn-primary apartment-link"
+      to="/editapartment/test-apartment"
+    >
+      View
+    </Link>
+  </div>
+  <p
+    className="apartment-info"
+  >
+    Test Apartment
+  </p>
+</div>
+`;
+
+exports[`renders correctly 1`] = `
+<div
+  className="apartment"
+>
+  <div
+    className="img-container"
+  >
+    <img
+      alt="apartment option"
+      src="https://firebasestorage.googleapis.com/v0/b/apartmentbook-6fc13.appspot.com/o/images%2F1585157227557room-12.jpeg?alt=media&token=fa90e908-510c-46de-8cd8-c66b26b54880"
+    />
+    <div
+      className="price-top"
+    >
+      <h6>
+        $
+        33
+      </h6>
+      <p>
+        per month
+      </p>
+    </div>
+    <Link
+      className="btn-primary apartment-link"
+      to="/editapartment/test-apartment"
+    >
+      View
+    </Link>
+  </div>
+  <p
+    className="apartment-info"
+  >
+    Test Apartment
+  </p>
+</div>
+`;
